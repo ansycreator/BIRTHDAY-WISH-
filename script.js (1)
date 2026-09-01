@@ -16,15 +16,26 @@ const timer = setInterval(() => {
         clearInterval(timer);
 
         countdown.classList.add("hidden");
-        birthday.classList.remove("hidden");
+birthday.classList.remove("hidden");
 
-        typeMessage();
+startCelebration();
+
+setTimeout(() => {
+    const birthday = document.getElementById("birthday");
+
+    if (birthday) {
+        birthday.classList.add("show");
+    }
+
+    startFallingCelebration();
+
+    typeMessage();
+}, 4000);
     }
 }, 1000);
 
 const message =
-`Happy Birthday, Sohana! 🎂❤️
-
+`Happy Birthday, Soham.! 🎂❤️
 May Allah bless you with happiness, peace, good health, success, and countless beautiful moments.
 
 May your smile always shine brightly, and may every good dream in your heart come true.
@@ -35,6 +46,127 @@ let index = 0;
 
 function typeMessage() {
 
+    if (index < message.length) {
+        typing.innerHTML += message.charAt(index);
+        index++;
+        setTimeout(typeMessage, 45);
+    }
+
+}
+
+surpriseBtn.addEventListener("click", () => {
+
+    surprise.classList.remove("hidden");
+
+    surpriseBtn.innerHTML = "🎉 Enjoy Your Day 🎉";
+
+});
+// 🎵 Birthday Music
+const music = document.getElementById("birthdayMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+musicBtn.addEventListener("click", function () {
+    if (music.paused) {
+        music.play()
+            .then(() => {
+                musicBtn.textContent = "⏸️";
+            })
+            .catch((error) => {
+                console.log("Music error:", error);
+            });
+    } else {
+        music.pause();
+        musicBtn.textContent = "🎵";
+    }
+});
+// 🎊 Soft Celebration Confetti
+
+const confettiContainer = document.querySelector(".celebration");
+
+for(let i = 0; i < 18; i++){
+
+    const confetti = document.createElement("span");
+
+    confetti.textContent = "•";
+
+    confetti.style.left = Math.random() * 100 + "%";
+    confetti.style.top = Math.random() * 100 + "%";
+
+    confetti.style.fontSize = (Math.random() * 8 + 5) + "px";
+
+    confetti.style.animationDuration =
+        (Math.random() * 4 + 5) + "s";
+
+    confetti.style.animationDelay =
+        Math.random() * 5 + "s";
+
+    confettiContainer.appendChild(confetti);
+}
+// 🎉 Countdown → Celebration
+function startCelebration() {
+    const celebration = document.getElementById("celebration");
+
+    if (celebration) {
+        celebration.style.display = "flex";
+    }
+
+    // Celebration থাকবে 4 seconds
+    setTimeout(() => {
+        if (celebration) {
+            celebration.style.display = "none";
+        }
+    }, 4000);
+}
+// 🎉 Long Falling Birthday Celebration
+
+function startFallingCelebration() {
+    const symbols = ["🎇", "🎉", "✨", "💫", "🎊", "💖"];
+
+    const container = document.createElement("div");
+    container.className = "falling-celebration";
+    document.body.appendChild(container);
+
+    function createFallingItem() {
+        const item = document.createElement("span");
+
+        item.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        item.style.left = Math.random() * 100 + "vw";
+
+        item.style.animationDuration =
+            (5 + Math.random() * 4) + "s";
+
+        item.style.fontSize =
+            (18 + Math.random() * 12) + "px";
+
+        container.appendChild(item);
+
+        setTimeout(() => {
+            item.remove();
+        }, 10000);
+    }
+
+    // Start gently
+    for (let i = 0; i < 10; i++) {
+        setTimeout(createFallingItem, i * 300);
+    }
+
+    // Keep falling continuously
+    const fallingInterval =
+        setInterval(createFallingItem, 650);
+
+    // 🎉 Continue for 60 seconds
+    setTimeout(() => {
+        clearInterval(fallingInterval);
+
+        // Let the remaining symbols finish falling
+        setTimeout(() => {
+            container.remove();
+        }, 10000);
+
+    }, 60000);
+}
     if (index < message.length) {
         typing.innerHTML += message.charAt(index);
         index++;
