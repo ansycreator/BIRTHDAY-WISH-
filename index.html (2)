@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Sohana ❤️</title>
+    <title>Happy Birthday Soham. ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,12 +13,23 @@
     <div id="countdown">
         <h1 id="count">3</h1>
     </div>
+    <!-- 🎉 Celebration -->
+<div id="celebration" class="celebration">
+    <div class="celebration-text">🎉✨ LET'S CELEBRATE! ✨🎉</div>
+
+    <div class="confetti">🎊</div>
+    <div class="confetti">✨</div>
+    <div class="confetti">🎉</div>
+    <div class="confetti">💫</div>
+    <div class="confetti">🎊</div>
+    <div class="confetti">✨</div>
+</div>
 
     <!-- Birthday Section -->
     <div id="birthday" class="hidden">
 
         <h1 class="title">
-            🎉 Happy Birthday Sohana 🎉
+            🎉 Happy Birthday Soham. 🎉
         </h1>
 
         <!-- Cake -->
@@ -41,10 +52,45 @@
 
         <!-- Surprise Text -->
         <div id="surprise" class="hidden">
+            <h2>Keep smiling always!🥱😄</h2>
+        </div>
+
+    </div>
+
+    <!-- Effects -->
+    <div id="balloons"></div>
+    <div id="hearts"></div>
+    <div id="confetti"></div>
+    <audio id="birthdayMusic" loop>
+    <source src="birthday-music.webm" type="audio/webm">
+    Your browser does not support audio.
+</audio>
+
+<button id="musicBtn">🎵 Play Music</button>
+    <!-- 🎉 Aesthetic Celebration -->
+<div class="celebration">
+    <span>✨</span>
+    <span>🎈</span>
+    <span>✨</span>
+    <span>🎇</span>
+    <span>✨</span>
+    <span>🎊</span>
+    <span>✨</span>
+</div>
+  <script src="script.js"></script>
+
+</body>
+</html>        <!-- Surprise Button -->
+        <button id="surpriseBtn">
+            🎁 Click Here
+        </button>
+
+        <!-- Surprise Text -->
+        <div id="surprise" class="hidden">
             <h2>💖 You are truly special! 💖</h2>
 
             <p>
-                May Allah bless your life with endless happiness,
+                May God bless your life with endless happiness,
                 success, good health, and beautiful memories.
                 Keep smiling always. 🌸
             </p>
